@@ -40,4 +40,20 @@ module.exports = {
         res.status(401).send(err)
     }
   },
+  studentByNIS: async (req, res) => {
+    const { NIS } = req.params
+    try {
+        const result = await student.findOne(
+          {
+            where: {
+              NIS
+            }
+          }
+        )
+        res.status(201).send(result)
+    } catch (err) {
+        console.log(err)
+        res.status(401).send(err)
+    }
+  },
 };
