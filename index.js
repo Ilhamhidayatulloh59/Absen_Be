@@ -22,9 +22,10 @@ server.get('/api/greetings', (req, res, next) => {
   });
 });
 
-const { roleRouters, userRouters } = require("./routers");
+const { roleRouters, userRouters, studentRouters } = require("./routers");
 server.use(roleRouters);
 server.use(userRouters);
+server.use(studentRouters);
 
 server.listen(PORT, () => {
   // db.sequelize.sync({ alter: true });
