@@ -51,6 +51,7 @@ module.exports = {
       });
 
       if (!isUserExist) throw "User not found";
+      if (!isUserExist.verified) throw "user is not verified"
 
       const payload = { id: isUserExist.id };
       const token = jwt.sign(payload, "jcwd2204");
